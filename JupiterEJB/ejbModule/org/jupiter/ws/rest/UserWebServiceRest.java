@@ -1,0 +1,82 @@
+package org.jupiter.ws.rest;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.ws.rs.Path;
+
+import org.jupiter.beans.UserBeanLocal;
+import org.jupiter.entities.Address;
+import org.jupiter.entities.User;
+
+@Stateless
+@Path("/resource")
+public class UserWebServiceRest {
+
+	/**
+	 * Default constructor.
+	 */
+	public UserWebServiceRest() {
+	}
+
+	@EJB
+	private UserBeanLocal userBean;
+
+	@WebMethod(action = "add")
+	public void addUser(@WebParam(name = "firstname") String firstname, @WebParam(name = "lastname") String lastname,
+			@WebParam(name = "login") String login, @WebParam(name = "email") String email,
+			@WebParam(name = "phone") String phone, @WebParam(name = "street") int street,
+			@WebParam(name = "city") String city, @WebParam(name = "zipcode") String zipcode,
+			@WebParam(name = "country") String country) {
+
+		Address address = new Address();
+		address.setStreet(street);
+		address.setCity(city);
+		address.setContry(country);
+		address.setZipcode(zipcode);
+
+		User user = new User();
+
+		user.setFirstname(firstname);
+		user.setLastname(lastname);
+		user.setLogin(login);
+		user.setEmail(email);
+		user.setPhone(phone);
+		user.setAddress(address);
+
+		if (null != firstname || null != lastname) {
+
+			userBean.addUser(user);
+		}
+	}
+
+	@WebMethod(action = "remove")
+	public void deleteUser(@WebParam(name = "userID") int id) {
+
+		User user = userBean.findUser(id);
+		if (null != user) {
+			userBean.deleteUser(user);
+		}
+	}
+
+	@WebMethod(action = "find")
+	public User findUser(@WebParam(name = "userID") int id) {
+
+		User user = userBean.findUser(id);
+		if (null != user) {
+			userBean.deleteUser(user);
+		} else {
+			System.out.println("user dont exist");
+		}
+		return user;
+	}
+
+	@WebMethod(action = "all")
+	public List<User> findAllUsers() {
+		return userBean.findAllUsers();
+	}
+
+}

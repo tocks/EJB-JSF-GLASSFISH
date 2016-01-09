@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Jupiter le CRM de refference</title>
+</h:head>
+<h:body>
+	<h1>Platnète Jupiter, le CRM de refférence !</h1>
+	<h:form>
+		  <fieldset>
+         	<legend>Add a prospect</legend>
+         	
+         	<fieldset>
+         	<legend>FULL NAME</legend>
+		     	<h:outputLabel for="firstname">First name :<span class="requis">*</span></h:outputLabel>
+		        <h:inputText id="firstname" value="#{prospectionBean.customer.firstname}" required="false" size="20" maxlength="60" />
+		        <h:message id="firstnameMessage" for="firstname" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="lastname">Last name :<span class="requis">*</span></h:outputLabel>
+		        <h:inputText id="lastname" value="#{prospectionBean.customer.lastname}" required="false" size="20" maxlength="60" />
+		        <h:message id="lastnameMessage" for="lasstname" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="customerphone">Phone :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="customerphone" value="#{prospectionBean.customer.phone}" required="false" size="20" maxlength="60" />
+		        <h:message id="customerphoneMessage" for="customerphone" errorClass="erreur" />
+		        <br />
+		    </fieldset>
+		    <fieldset>
+         	<legend>COMPANY INFORMATIONS</legend>
+		     	<h:outputLabel for="companyname">Name :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="companyname" value="#{prospectionBean.company.companyName}"  required="false" size="20" maxlength="60" />
+		        <h:message id="companynameMessage" for="firstname" errorClass="erreur" />
+		        <br />
+				<h:outputLabel for="activity">Activity :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="activity" value="#{prospectionBean.company.Sector}"  required="false" size="20" maxlength="60" />
+		        <h:message id="activityMessage" for="activity" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="phone">Phone :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="phone" value="#{prospectionBean.company.phone}"  required="false" size="20" maxlength="60" />
+		        <h:message id="phoneMessage" for="phone" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="website">Web site :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="website" value="#{prospectionBean.company.website}"  required="false" size="20" maxlength="60" />
+		        <h:message id="websiteMessage" for="website" errorClass="erreur" />
+		        <br />
+			</fieldset>
+			<fieldset>
+         	<legend>ADDRESS</legend>
+		     	<h:outputLabel for="street">Street :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="street" value="#{prospectionBean.address.street}"  required="false" size="20" maxlength="60" />
+		        <h:message id="streetMessage" for="street" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="addrresdescription">Address :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="addrresdescription" value="#{prospectionBean.address.address}"  required="false" size="20" maxlength="60" />
+		        <h:message id="addrresdescriptionMessage" for="addrresdescription" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="zipcode">Zip code :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="zipcode" value="#{prospectionBean.address.zipcode}"  required="false" size="20" maxlength="60" />
+		        <h:message id="zipcodeMessage" for="zipcode" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="city">City :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="city" value="#{prospectionBean.address.city}"  required="false" size="20" maxlength="60" />
+		        <h:message id="cityMessage" for="city" errorClass="erreur" />
+		        <br />
+	        </fieldset>
+	        <fieldset>
+         	<legend>STATUS</legend>
+		       	<h:outputLabel for="status">Status :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="status" value="#{prospectionBean.prospectionStatus.statusName}"  required="false" size="20" maxlength="60" />
+		        <h:message id="statusMessage" for="status" errorClass="erreur" />
+		        <br />
+		   </fieldset>
+		   <fieldset>
+           <legend>SOURCE</legend>    
+		        <h:outputLabel for="source">source :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="source" value="" required="false" size="20" maxlength="60" />
+		        <h:message id="sourceMessage" for="source" errorClass="erreur" />
+		        <br />
+		    </fieldset>  
+		    <fieldset>
+         	<legend>OWNER</legend>
+		        <h:outputLabel for="owner">Owner :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="owner" value="#{prospectionBean.owner.ownerName}"  required="false" size="20" maxlength="60" />
+		        <h:message id="ownerMessage" for="owner" errorClass="erreur" />
+		        <br />
+	        </fieldset>
+	        
+	        <h:messages globalOnly="true" infoClass="info" />
+	
+	        <h:commandButton value="Add" action="#{prospectionBean.addProspection}" styleClass="sansLabel" />
+	        <br />
+          </fieldset>
+	</h:form>
+</h:body>
+</html>

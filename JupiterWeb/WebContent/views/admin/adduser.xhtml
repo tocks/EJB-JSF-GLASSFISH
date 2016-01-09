@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Jupiter le CRM de refference</title>
+</h:head>
+<h:body>
+	<h1>Platnète Jupiter, le CRM de refférence !</h1>
+	<h:form>
+		  <fieldset>
+         	<legend>Add an user</legend>
+         	
+		     	<h:outputLabel for="firstname">First name :<span class="requis">*</span></h:outputLabel>
+		        <h:inputText id="firstname" value="#{userBean.user.firstname}" required="false" size="20" maxlength="60" />
+		        <h:message id="firstnameMessage" for="firstname" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="lastname">Last name :<span class="requis">*</span></h:outputLabel>
+		        <h:inputText id="lastname" value="#{userBean.user.lastname}" required="false" size="20" maxlength="60" />
+		        <h:message id="lastnameMessage" for="lasstname" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="phone">Phone :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="phone" value="#{userBean.user.phone}" required="false" size="20" maxlength="60" />
+		        <h:message id="phoneMessage" for="phone" errorClass="erreur" />
+		        <br />
+		     	<h:outputLabel for="login">Login :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="login" value="#{userBean.user.login}"  required="false" size="20" maxlength="60" />
+		        <h:message id="loginMessage" for="login" errorClass="erreur" />
+		        <br />
+				<h:outputLabel for="email">Email :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="email" value="#{userBean.user.email}"  required="false" size="20" maxlength="60" />
+		        <h:message id="emailMessage" for="email" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="surname">Surname :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="surname" value="#{userBean.user.surname}"  required="false" size="20" maxlength="60" />
+		        <h:message id="surnameMessage" for="surname" errorClass="erreur" />
+		        <br />
+			
+		     	<h:outputLabel for="street">Street :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="street" value="#{userBean.address.street}"  required="false" size="20" maxlength="60" />
+		        <h:message id="streetMessage" for="street" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="addrresdescription">Address :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="addrresdescription" value="#{userBean.address.address}"  required="false" size="20" maxlength="60" />
+		        <h:message id="addrresdescriptionMessage" for="addrresdescription" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="zipcode">Zip code :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="zipcode" value="#{userBean.address.zipcode}"  required="false" size="20" maxlength="60" />
+		        <h:message id="zipcodeMessage" for="zipcode" errorClass="erreur" />
+		        <br />
+		        
+		        <h:outputLabel for="city">City :<span class="requis"></span></h:outputLabel>
+		        <h:inputText id="city" value="#{userBean.address.city}"  required="false" size="20" maxlength="60" />
+		        <h:message id="cityMessage" for="city" errorClass="erreur" />
+		        <br />
+	        
+	      
+	        
+	        <h:messages globalOnly="true" infoClass="info" />
+	
+	        <h:commandButton value="Add" action="#{userBean.addUser}" styleClass="sansLabel" />
+	        <br />
+          </fieldset>
+	</h:form>
+</h:body>
+</html>
